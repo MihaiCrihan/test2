@@ -3,12 +3,12 @@ const ListController = require('../../controllers/list')
 module.exports = (app) => {
   /**
    * RETERTRETRETERTERTRETRETERTRET
-   * @route GET /cron
+   * @route GET /getAll
    * @group get - что то про этот роут
    * @returns {object} 200 - Массив с какой то хуетой
    * @returns {Error}  default - Unexpected error
    */
-  app.get('/cron', [
+  app.get('/getAll', [
     ListController.getAll
   ])
 
