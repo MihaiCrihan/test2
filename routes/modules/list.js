@@ -12,15 +12,16 @@ module.exports = (app) => {
     ListController.getAll
   ])
 
+
   /**
    * This function comment is parsed by doctrine
-   * @route GET /cron/{id}
+   * @route GET /getId/{id}
    * @group get - что то про этот роут
    * @param {string} id.path.required - idska
    * @returns {object} 200 - Данные об одном пользователе
    * @returns {Error}  default - Unexpected error
    */
-  app.get('/cron/:id', [
+  app.get('/getId/:id', [
     ListController.get
   ])
 
@@ -32,51 +33,51 @@ module.exports = (app) => {
 
   /**
    * This function comment is parsed by doctrine
-   * @route POST /cron
+   * @route POST /postNew
    * @group get - что то про этот роут
    * @param {Produs.model} body.body.required - the new produs
    * @returns {object} 200 - Данные об одном пользователе
    * @returns {Error}  default - Unexpected error
    */
-  app.post('/cron', [
+  app.post('/postNew', [
     ListController.post
   ])
 
   /**
    * This function comment is parsed by doctrine
-   * @route PUT /cron/{id}
+   * @route PUT /post/{id}
    * @group get - что то про этот роут
    * @param {string} id.path.required - idska
    * @param {Produs.model} body.body.required - the new produs
    * @returns {object} 200 - Данные об одном пользователе
    * @returns {Error}  default - Unexpected error
    */
-  app.put('/cron/:id', [
+  app.put('/post/:id', [
     ListController.put
   ])
 
   /**
    * This function comment is parsed by doctrine
-   * @route PATCH /cron/{id}
+   * @route PATCH /patch/{id}
    * @group get - что то про этот роут
    * @param {string} id.path.required - idska
    * @param {Produs.model} body.body.required - the new produs
    * @returns {object} 200 - Данные об одном пользователе
    * @returns {Error}  default - Unexpected error
    */
-  app.patch('/cron/:id', [
+  app.patch('/patch/:id', [
     ListController.patch
   ])
 
   /**
    * This function comment is parsed by doctrine
-   * @route DELETE /cron/{id}
+   * @route DELETE /removeById/{id}
    * @group get - что то про этот роут
    * @param {string} id.path.required - idska
    * @returns {object} 200 - Данные об одном пользователе
    * @returns {Error}  default - Unexpected error
    */
-  app.delete('/cron/:id', [
+  app.delete('/removeById/:id', [
     ListController.delete
   ])
 }
