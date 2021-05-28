@@ -43,25 +43,6 @@ exports.post = async (req, res) => {
   }
 }
 
-exports.put = async (req, res) => {
-  try {
-    const updatedFields = Object.entries(req.body).map(([column, value]) => `${column} = '${value}'`)
-      .join(', ')
-
-    await db.query(`UPDATE produse SET ${updatedFields} WHERE id = ${req.params.id}`)
-    const [insertedItem] = await db.query(`SELECT * FROM produse WHERE id = ${req.params.id}`)
-
-    if (insertedItem) {
-      res.status(200).send(insertedItem)
-    } else {
-      res.status(404).send({
-        message: 'Запись не найдена'
-      })
-    }
-  } catch (err) {
-    res.status(500).send(err.message)
-  }
-}
 
 exports.patch = async (req, res) => {
   try {
@@ -88,7 +69,7 @@ exports.delete = async (req, res) => {
     const response = await db.query(`DELETE FROM produse WHERE id = ${req.params.id}`)
 
     if (response.affectedRows) {
-      res.status(200).send('Запись успешно удалена')
+      res.status(200).send('Inserarea a fost stearsa cu succes')
     } else {
       res.status(404).send({
         message: 'Запись не найдена'

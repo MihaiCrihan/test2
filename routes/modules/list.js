@@ -2,11 +2,16 @@ const ListController = require('../../controllers/list')
 
 module.exports = (app) => {
   /**
-   * RETERTRETRETERTERTRETRETERTRET
+   * @typedef Produs
+   * @property {string} denumire.required
+   * @property {integer} pret.required
+   */
+
+  /**
    * @route GET /getAll
-   * @group get - что то про этот роут
-   * @returns {object} 200 - Массив с какой то хуетой
-   * @returns {Error}  default - Unexpected error
+   * @group get - Face get query si pimeste tot continutul
+   * @returns {object} 200 - Daca totul este realizat cu succes intoarce toate datele
+   * @returns {Error}  default - Oupssss ceva nu a mers bine
    */
   app.get('/getAll', [
     ListController.getAll
@@ -14,68 +19,47 @@ module.exports = (app) => {
 
 
   /**
-   * This function comment is parsed by doctrine
    * @route GET /getId/{id}
-   * @group get - что то про этот роут
-   * @param {string} id.path.required - idska
-   * @returns {object} 200 - Данные об одном пользователе
-   * @returns {Error}  default - Unexpected error
+   * @group get - Get Query care primeste informatia despre o inregistrare
+   * @param {string} id.path - Introduceti un Id
+   * @returns {object} 200 - Returneaza datele despre un produs
+   * @returns {Error}  default - Oupssss ceva nu a mers bine
    */
   app.get('/getId/:id', [
     ListController.get
   ])
 
-  /**
-   * @typedef Produs
-   * @property {string} denumire.required
-   * @property {integer} pret.required
-   */
 
   /**
-   * This function comment is parsed by doctrine
    * @route POST /postNew
-   * @group get - что то про этот роут
-   * @param {Produs.model} body.body.required - the new produs
-   * @returns {object} 200 - Данные об одном пользователе
-   * @returns {Error}  default - Unexpected error
+   * @group post - Incarca o informatie noua conform modelului
+   * @param {Produs.model} body.body - the new produs
+   * @returns {object} 200 - Returneaza datele despre un produs
+   * @returns {Error}  default - Oupssss ceva nu a mers bine
    */
   app.post('/postNew', [
     ListController.post
   ])
 
-  /**
-   * This function comment is parsed by doctrine
-   * @route PUT /post/{id}
-   * @group get - что то про этот роут
-   * @param {string} id.path.required - idska
-   * @param {Produs.model} body.body.required - the new produs
-   * @returns {object} 200 - Данные об одном пользователе
-   * @returns {Error}  default - Unexpected error
-   */
-  app.put('/post/:id', [
-    ListController.put
-  ])
 
   /**
-   * This function comment is parsed by doctrine
    * @route PATCH /patch/{id}
-   * @group get - что то про этот роут
-   * @param {string} id.path.required - idska
-   * @param {Produs.model} body.body.required - the new produs
-   * @returns {object} 200 - Данные об одном пользователе
-   * @returns {Error}  default - Unexpected error
+   * @group patch - modifica o inserare dorita introductind id-ul produsului
+   * @param {string} id.path.required - Introduceti un Id
+   * @param {Produs.model} body.body - Produsul nou care va fi inserat
+   * @returns {object} 200 - Daca totul este realizat cu succes intoarce datele produsului
+   * @returns {Error}  default - Oupssss ceva nu a mers bine
    */
   app.patch('/patch/:id', [
     ListController.patch
   ])
 
   /**
-   * This function comment is parsed by doctrine
    * @route DELETE /removeById/{id}
-   * @group get - что то про этот роут
-   * @param {string} id.path.required - idska
-   * @returns {object} 200 - Данные об одном пользователе
-   * @returns {Error}  default - Unexpected error
+   * @group delete - sterge inserarea dorita
+   * @param {string} id.path.required - Introduceti un Id ex 7
+   * @returns {object} 200 - Inserarea a fost stearsa cu succes
+   * @returns {Error}  default - Oupssss ceva nu a mers bine
    */
   app.delete('/removeById/:id', [
     ListController.delete
